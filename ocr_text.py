@@ -74,6 +74,12 @@ def main():
     with open(os.path.join(result_path, "results.json"), "w+", encoding="utf-8") as f:
         json.dump(out_preds, f, ensure_ascii=False)
 
+        def save_results_to_json(out_preds, result_path):
+            with open(os.path.join(result_path, "results.json"), "w+", encoding="utf-8") as f:
+                json.dump(out_preds, f, ensure_ascii=False)
+
+                save_results_to_json(out_preds, result_path)
+
     print(f"Wrote results to {result_path}")
 
 

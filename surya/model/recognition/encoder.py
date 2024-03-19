@@ -29,11 +29,11 @@ class VariableDonutSwinEmbeddings(DonutSwinEmbeddings):
         self.dropout = nn.Dropout(config.hidden_dropout_prob)
 
     def forward(
-        self, pixel_values: Optional[torch.FloatTensor], bool_masked_pos: Optional[torch.BoolTensor] = None
+            self, pixel_values: Optional[torch.FloatTensor], bool_masked_pos: Optional[torch.BoolTensor] = None
     ) -> Tuple[torch.Tensor]:
 
         embeddings, output_dimensions = self.patch_embeddings(pixel_values)
-        # Layernorm across the last dimension (each patch is a single row)
+        # Layer norm across the last dimension (each patch is a single row)
         embeddings = self.norm(embeddings)
         batch_size, seq_len, embed_dim = embeddings.size()
 
@@ -53,6 +53,7 @@ class VariableDonutSwinEmbeddings(DonutSwinEmbeddings):
 
 class VariableDonutSwinModel(DonutSwinModel):
     config_class = VariableDonutSwinConfig
+
     def __init__(self, config, add_pooling_layer=True, use_mask_token=False):
         super().__init__(config)
         self.config = config

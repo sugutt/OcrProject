@@ -103,17 +103,9 @@ layout_model, layout_processor = load_layout_cached()
 
 
 st.markdown("""
-# Surya OCR Demo
+#  OCR Demo
 
-This app will let you try surya, a multilingual OCR model. It supports text detection in any language, and text recognition in 90+ languages.
-
-Notes:
-- This works best on documents with printed text.
-- Preprocessing the image (e.g. increasing contrast) can improve results.
-- If OCR doesn't work, try changing the resolution of your image (increase if below 2048px width, otherwise decrease).
-- This supports 90+ languages, see [here](https://github.com/VikParuchuri/surya/tree/master/surya/languages.py) for a full list.
-
-Find the project [here](https://github.com/VikParuchuri/surya).
+This app will let you try OcrProject, a multilingual OCR model. You can upload a PDF or an image and run text detection, OCR, and layout detection on it.
 """)
 
 in_file = st.sidebar.file_uploader("PDF file or image:", type=["pdf", "png", "jpg", "jpeg", "gif", "webp"])
